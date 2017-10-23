@@ -443,30 +443,25 @@ q {
   background-size: 256px 256px;
 }
 
+@mixin transform($transformation, $opacity) {
+  transform: scale($transformation, $transformation);
+  opacity: $opacity;
+  -webkit-transform: scale($transformation, $transformation);
+  opacity: $opacity;
+  -moz-transform: scale($transformation, $transformation);
+  opacity: $opacity;
+  -ms-transform: scale($transformation, $transformation);
+  opacity: $opacity;
+  -o-transform: scale($transformation, $transformation);
+  opacity: $opacity;
+}
+
 #bigCookie {
   &:hover {
-    -webkit-transform: scale(1.05, 1.05);
-    opacity: 0.9;
-    -moz-transform: scale(1.05, 1.05);
-    opacity: 0.9;
-    -ms-transform: scale(1.05, 1.05);
-    opacity: 0.9;
-    -o-transform: scale(1.05, 1.05);
-    opacity: 0.9;
-    transform: scale(1.05, 1.05);
-    opacity: 0.9;
+    @include transform(1.05, 0.9);
   }
   &:active {
-    -webkit-transform: scale(0.98, 0.98);
-    opacity: 1;
-    -moz-transform: scale(0.98, 0.98);
-    opacity: 1;
-    -ms-transform: scale(0.98, 0.98);
-    opacity: 1;
-    -o-transform: scale(0.98, 0.98);
-    opacity: 1;
-    transform: scale(0.98, 0.98);
-    opacity: 1;
+    @include transform(0.98, 1);
   }
 }
 
